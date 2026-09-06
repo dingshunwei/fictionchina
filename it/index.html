@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — Storie oltre i mondi</title>
+<meta name="description" content="FictionChina — romanzi a puntate: fantasy, avventura e altro. Leggi capitoli gratis.">
+<link rel="canonical" href="https://fictionchina.com/it/">
+<meta property="og:title" content="FictionChina — Storie oltre i mondi">
+<meta property="og:description" content="Romanzi a puntate. Leggi capitoli gratis.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="logo" href="./">Fiction<em>China</em></a>
+  <nav class="nav"><a href="./">Home</a><a href="./novel/tales-of-yue-fei.html">Romanzi</a><a href="#about">Chi siamo</a><a href="../">English</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div><h1>Storie <span>oltre i mondi</span></h1>
+  <p>Una casa per la narrativa a puntate — fantasy, avventura e viaggi indimenticabili. Nuovi capitoli gratis.</p>
+  <div class="tagrow"><span class="tag">Fantasy</span><span class="tag">Avventura</span><span class="tag">Epica</span></div></div>
+  <div class="art">📚</div>
+</div></section>
+<section><div class="wrap">
+  <div class="sec-head"><h2>Serie in evidenza</h2><span class="line"></span></div>
+  <div class="grid">
+    <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008"><div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">In evidenza</span></div><div class="meta"><h3>Il racconto completo di Yue Fei</h3><div class="author">Qian Cai e Jin Feng</div><div class="desc">Un'epica storica di lealtà e resistenza — la storia di Yue Fei e del suo fedele esercito.</div></div></a>
+    <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">Presto</div></div><div class="meta"><h3>Nuova serie</h3></div></div>
+  </div>
+</div></section>
+<section id="about"><div class="wrap"><div class="sec-head"><h2>Su FictionChina</h2><span class="line"></span></div><p style="color:#6a665e;max-width:720px">FictionChina è una casa per la narrativa a puntate in inglese — lettura gratuita nel browser, nuovi capitoli man mano che vengono scritti.</p></div></section>
+<section id="contact" style="background:var(--paper-2)"><div class="wrap">
+  <div class="sec-head"><h2>Scrivere all'autore</h2><span class="line"></span></div>
+  <p style="color:#6a665e;max-width:640px">Una domanda o un'osservazione? Scrivi — il messaggio arriva direttamente all'autore.</p>
+  <textarea id="author-msg" rows="4" placeholder="Scrivi il tuo messaggio…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+  <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">Invia all'autore</button></div>
+  <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 FictionChina</span></div></footer>
+<script>const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co",ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";function sendAuthorMsg(){const t=document.getElementById('author-msg').value.trim(),s=document.getElementById('author-status');if(!t){s.textContent='Scrivi prima un messaggio.';return;}s.textContent='Invio…';fetch(SB_URL+"/rest/v1/messages",{method:'POST',headers:{'apikey':ANON,'Authorization':'***'+ANON,'content-type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({device_id:'fictionchina-web',text:t})}).then(r=>{if(r.ok){s.textContent='Grazie! Il tuo messaggio è arrivato all\'autore.';document.getElementById('author-msg').value='';}else{s.textContent='Invio non riuscito.';}}).catch(()=>{s.textContent='Errore di rete. Riprova.';});}</script>
+</body>
+</html>
