@@ -1,7 +1,7 @@
 # FictionChina — 静态小说网站（英文主站）
 
-> 目标域名：`fictionchina.com`（静态站，可部署到 GitHub Pages / Cloudflare Pages）。
-> 主语言：**英文**。当前含一篇示例小说《The Jade Phoenix Ascends》（3 章），供你替换/参考。
+> 目标域名：`fictionchina.com`（静态站，GitHub Pages 已上线 `fictionchina.com`）。
+> 主语言：**英文**。当前上架小说《The Complete Tale of Yue Fei 说岳全传》（详情+简介，章节待填）。
 
 ## 目录结构
 ```
