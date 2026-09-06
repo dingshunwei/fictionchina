@@ -83,11 +83,32 @@
   </div>
 </section>
 
+<section id="contact" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Message the Author</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:640px">Have a question, a correction, or a thought about the series? Send a note and it goes straight to the author.</p>
+    <textarea id="author-msg" rows="4" placeholder="Write your message…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+    <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">Send to Author</button></div>
+    <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <span>© 2026 FictionChina</span>
     <span><a href="./sitemap.xml" style="color:#9a97a2">Sitemap</a></span>
   </div>
 </footer>
+<script>
+  const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co", ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";
+  function sendAuthorMsg(){
+    const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
+    if(!txt){ s.textContent="Please write a message first."; return; }
+    s.textContent="Sending…";
+    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"Bearer "+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+      .then(function(r){ if(r.ok){ s.textContent="Thank you! Your message has been sent to the author."; document.getElementById('author-msg').value=""; } else { s.textContent="Sorry, sending failed. Please try again."; } })
+      .catch(function(){ s.textContent="Network error. Please try again."; });
+  }
+</script>
 </body>
 </html>
