@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — סיפורים מעבר לעולמות</title>
+<meta name="description" content="FictionChina — רומנים בהמשכים: פנטזיה, הרפתקאות ועוד. קראו פרקים בחינם.">
+<link rel="canonical" href="https://fictionchina.com/he/">
+<meta property="og:title" content="FictionChina — סיפורים מעבר לעולמות">
+<meta property="og:description" content="רומנים בהמשכים. קראו פרקים בחינם.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="logo" href="./">Fiction<em>China</em></a>
+  <nav class="nav"><a href="./">בית</a><a href="./novel/tales-of-yue-fei.html">רומנים</a><a href="#about">אודות</a><a href="../">English</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div><h1>סיפורים <span>מעבר לעולמות</span></h1>
+  <p>בית לפרוזה בהמשכים — פנטזיה, הרפתקאות ומסעות בלתי נשכחים. פרקים חדשים לקריאה חינם.</p>
+  <div class="tagrow"><span class="tag">פנטזיה</span><span class="tag">הרפתקאות</span><span class="tag">אפוס</span></div></div>
+  <div class="art">📚</div>
+</div></section>
+<section><div class="wrap">
+  <div class="sec-head"><h2>הסדרה המומלצת</h2><span class="line"></span></div>
+  <div class="grid">
+    <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008"><div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">מומלץ</span></div><div class="meta"><h3>הסיפור המלא של יוא פיי</h3><div class="author">צ'יאן צ'אי וג'ין פנג</div><div class="desc">אפוס היסטורי של נאמנות ועמידה — סיפורו של יוא פיי וצבאו הנאמן.</div></div></a>
+    <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">בקרוב</div></div><div class="meta"><h3>סדרה חדשה</h3></div></div>
+  </div>
+</div></section>
+<section id="about"><div class="wrap"><div class="sec-head"><h2>על FictionChina</h2><span class="line"></span></div><p style="color:#6a665e;max-width:720px">FictionChina הוא בית לפרוזה בהמשכים באנגלית — קריאה חינם בדפדפן, פרקים חדשים עם כתיבתם.</p></div></section>
+<section id="contact" style="background:var(--paper-2)"><div class="wrap">
+  <div class="sec-head"><h2>לכתוב לסופר</h2><span class="line"></span></div>
+  <p style="color:#6a665e;max-width:640px">שאלה או הערה? כתבו — ההודעה מגיעה ישירות לסופר.</p>
+  <textarea id="author-msg" rows="4" placeholder="כתבו את הודעתכם…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+  <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">שליחה לסופר</button></div>
+  <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 FictionChina</span></div></footer>
+<script>const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co",ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";function sendAuthorMsg(){const t=document.getElementById('author-msg').value.trim(),s=document.getElementById('author-status');if(!t){s.textContent='כתבו הודעה קודם.';return;}s.textContent='שולח…';fetch(SB_URL+"/rest/v1/messages",{method:'POST',headers:{'apikey':ANON,'Authorization':'***'+ANON,'content-type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({device_id:'fictionchina-web',text:t})}).then(r=>{if(r.ok){s.textContent='תודה! ההודעה הגיעה לסופר.';document.getElementById('author-msg').value='';}else{s.textContent='השליחה נכשלה.';}}).catch(()=>{s.textContent='שגיאת רשת. נסו שוב.';});}</script>
+</body>
+</html>
