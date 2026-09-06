@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — Истории за пределами миров</title>
+<meta name="description" content="FictionChina — серийная художественная литература: фэнтези, приключения и другое. Читайте главы бесплатно.">
+<link rel="canonical" href="https://fictionchina.com/ru/">
+<meta property="og:title" content="FictionChina — Истории за пределами миров">
+<meta property="og:description" content="Серийная художественная литература. Читайте главы бесплатно.">
+<meta property="og:url" content="https://fictionchina.com/ru/">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./">Fiction<em>China</em></a>
+    <nav class="nav">
+      <a href="./">Главная</a>
+      <a href="./novel/tales-of-yue-fei.html">Романы</a>
+      <a href="#about">О нас</a>
+      <a href="../">English</a>
+      <a href="../ar/">العربية</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Истории <span>за пределами миров</span></h1>
+      <p>Дом серийной литературы — фэнтези, приключения и незабываемые истории. Новые главы читайте бесплатно.</p>
+      <div class="tagrow"><span class="tag">Фэнтези</span><span class="tag">Приключения</span><span class="tag">Эпос</span></div>
+    </div>
+    <div class="art">📚</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Избранное</h2><span class="line"></span></div>
+    <div class="grid">
+      <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008">
+        <div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">Избранное</span></div>
+        <div class="meta">
+          <h3>Полное сказание о Юэ Фэе</h3>
+          <div class="author">Цянь Цай и Цзинь Фэн</div>
+          <div class="desc">Исторический эпос о верности и стойкости — история Юэ Фэя и его преданного войска.</div>
+        </div>
+      </a>
+      <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">Скоро</div></div><div class="meta"><h3>Новый сериал</h3></div></div>
+      <div class="card" style="--c1:#24303a;--c2:#0f161c;opacity:.55"><div class="cover"><div class="ct">Скоро</div></div><div class="meta"><h3>Новый сериал</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>О FictionChina</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:720px">FictionChina — дом серийной художественной литературы на английском: бесплатное чтение в браузере, новые главы по мере написания.</p>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Написать автору</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:640px">Есть вопрос или мысль? Напишите — сообщение попадёт прямо к автору.</p>
+    <textarea id="author-msg" rows="4" placeholder="Напишите ваше сообщение…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+    <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">Отправить автору</button></div>
+    <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 FictionChina</span><span><a href="../sitemap.xml" style="color:#9a97a2">Карта сайта</a></span></div></footer>
+
+<script>
+  const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co", ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";
+  function sendAuthorMsg(){
+    const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
+    if(!txt){ s.textContent="Сначала напишите сообщение."; return; }
+    s.textContent="Отправка…";
+    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+      .then(r=>{ if(r.ok){ s.textContent="Спасибо! Ваше сообщение отправлено автору."; document.getElementById('author-msg').value=""; } else { s.textContent="Не удалось отправить. Попробуйте ещё раз."; } })
+      .catch(()=>{ s.textContent="Ошибка сети. Попробуйте ещё раз."; });
+  }
+</script>
+</body>
+</html>
