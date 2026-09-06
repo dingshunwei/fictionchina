@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — قصص تتجاوز العوالم</title>
+<meta name="description" content="FictionChina — روايات تسلسلية بالإنجليزية: خيال، مغامرة، والمزيد. اقرأ الفصول مجانًا.">
+<link rel="canonical" href="https://fictionchina.com/ar/">
+<meta property="og:title" content="FictionChina — قصص تتجاوز العوالم">
+<meta property="og:description" content="روايات تسلسلية بالإنجليزية. اقرأ الفصول مجانًا.">
+<meta property="og:url" content="https://fictionchina.com/ar/">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./">Fiction<em>China</em></a>
+    <nav class="nav">
+      <a href="./">الرئيسية</a>
+      <a href="./novel/tales-of-yue-fei.html">الروايات</a>
+      <a href="#about">من نحن</a>
+      <a href="../">English</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>قصصٌ <span>وراء العوالم</span></h1>
+      <p>بيت للرواية التسلسلية — رحلات خيالية، بطولات ملحمية، وحكايات لا تُنسى. فصول جديدة تُقرأ مجانًا.</p>
+      <div class="tagrow">
+        <span class="tag">خيال</span><span class="tag">مغامرة</span><span class="tag">ملاحم</span>
+      </div>
+    </div>
+    <div class="art">📚</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>أعمال مميزة</h2><span class="line"></span></div>
+    <div class="grid">
+      <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008">
+        <div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">مميّز</span></div>
+        <div class="meta">
+          <h3>الحكاية الكاملة ليوي فاي</h3>
+          <div class="author">بقلم كيان كاي وجين فينغ</div>
+          <div class="desc">ملحمة تاريخية عن الوفاء والصمود — قصة يوي فاي وجيشه الوفي.</div>
+        </div>
+      </a>
+      <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">قريبًا</div></div><div class="meta"><h3>سلسلة جديدة</h3></div></div>
+      <div class="card" style="--c1:#24303a;--c2:#0f161c;opacity:.55"><div class="cover"><div class="ct">قريبًا</div></div><div class="meta"><h3>سلسلة جديدة</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>عن FictionChina</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:720px">FictionChina بيتٌ للرواية التسلسلية بالإنجليزية — تُقرأ مجانًا على الويب، وتُضاف فصول جديدة مع كتابتها.</p>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head"><h2>أرسل رسالة إلى الكاتب</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:640px">عندك سؤال أو ملاحظة؟ أرسل رسالة وسوف تصل إلى الكاتب مباشرة.</p>
+    <textarea id="author-msg" rows="4" placeholder="اكتب رسالتك…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+    <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">إرسال إلى الكاتب</button></div>
+    <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 FictionChina</span><span><a href="../sitemap.xml" style="color:#9a97a2">خريطة الموقع</a></span></div></footer>
+
+<script>
+  const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co", ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";
+  function sendAuthorMsg(){
+    const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
+    if(!txt){ s.textContent="الرجاء كتابة رسالة أولًا."; return; }
+    s.textContent="جارٍ الإرسال…";
+    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+      .then(r=>{ if(r.ok){ s.textContent="شكرًا! وصلت رسالتك إلى الكاتب."; document.getElementById('author-msg').value=""; } else { s.textContent="عذرًا، فشل الإرسال. حاول مرة أخرى."; } })
+      .catch(()=>{ s.textContent="خطأ في الشبكة. حاول مرة أخرى."; });
+  }
+</script>
+</body>
+</html>
