@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — 世界の彼方の物語</title>
+<meta name="description" content="FictionChina — 連載小説：ファンタジー、冒険など。無料で読める新章。">
+<link rel="canonical" href="https://fictionchina.com/ja/">
+<meta property="og:title" content="FictionChina — 世界の彼方の物語">
+<meta property="og:description" content="連載小説。無料で読める新章。">
+<meta property="og:url" content="https://fictionchina.com/ja/">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./">Fiction<em>China</em></a>
+    <nav class="nav"><a href="./">ホーム</a><a href="./novel/tales-of-yue-fei.html">小説</a><a href="#about">について</a><a href="../">English</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div><h1>物語は<span>世界の彼方へ</span></h1>
+      <p>連載小説の場——ファンタジー、冒険、忘れがたい旅。新章を無料で。</p>
+      <div class="tagrow"><span class="tag">ファンタジー</span><span class="tag">冒険</span><span class="tag">叙事詩</span></div>
+    </div>
+    <div class="art">📚</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>注目のシリーズ</h2><span class="line"></span></div>
+    <div class="grid">
+      <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008">
+        <div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">注目</span></div>
+        <div class="meta"><h3>岳飛全伝</h3><div class="author">銭彩・金豊</div><div class="desc">忠義と忍耐の歴史叙事詩——岳飛とその忠実な軍の物語。</div></div>
+      </a>
+      <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">近日</div></div><div class="meta"><h3>新シリーズ</h3></div></div>
+      <div class="card" style="--c1:#24303a;--c2:#0f161c;opacity:.55"><div class="cover"><div class="ct">近日</div></div><div class="meta"><h3>新シリーズ</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>FictionChina について</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:720px">FictionChina は英語の連載小説の場——ブラウザで無料、書かれるたびに新章が増えます。</p>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head"><h2>作者にメッセージ</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:640px">質問や感想は？書けば、作者に直接届きます。</p>
+    <textarea id="author-msg" rows="4" placeholder="メッセージを書く…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+    <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">作者へ送る</button></div>
+    <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 FictionChina</span><span><a href="../sitemap.xml" style="color:#9a97a2">サイトマップ</a></span></div></footer>
+
+<script>
+  const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co", ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";
+  function sendAuthorMsg(){
+    const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
+    if(!txt){ s.textContent="まずメッセージを書いてください。"; return; }
+    s.textContent="送信中…";
+    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+      .then(r=>{ if(r.ok){ s.textContent="ありがとうございます！作者へ送信されました。"; document.getElementById('author-msg').value=""; } else { s.textContent="送信に失敗しました。"; } })
+      .catch(()=>{ s.textContent="ネットワークエラー。再試行してください。"; });
+  }
+</script>
+</body>
+</html>
