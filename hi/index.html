@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — दुनियाओं से परे की कहानियाँ</title>
+<meta name="description" content="FictionChina — धारावाहिक उपन्यास: फैंटेसी, रोमांच और अधिक। अध्याय मुफ़्त पढ़ें।">
+<link rel="canonical" href="https://fictionchina.com/hi/">
+<meta property="og:title" content="FictionChina — दुनियाओं से परे की कहानियाँ">
+<meta property="og:description" content="धारावाहिक उपन्यास। अध्याय मुफ़्त पढ़ें।">
+<meta property="og:url" content="https://fictionchina.com/hi/">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./">Fiction<em>China</em></a>
+    <nav class="nav"><a href="./">मुख्य</a><a href="./novel/tales-of-yue-fei.html">उपन्यास</a><a href="#about">हमारे बारे में</a><a href="../">English</a></nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div><h1>कहानियाँ <span>दुनियाओं से परे</span></h1>
+      <p>धारावाहिक कथा-काव्य का घर — फैंटेसी, रोमांच और अविस्मरणीय पड़ाव। नए अध्याय मुफ़्त पढ़ें।</p>
+      <div class="tagrow"><span class="tag">फैंटेसी</span><span class="tag">रोमांच</span><span class="tag">महाकाव्य</span></div>
+    </div>
+    <div class="art">📚</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>चुनिंदा श्रृंखला</h2><span class="line"></span></div>
+    <div class="grid">
+      <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008">
+        <div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">चुनिंदा</span></div>
+        <div class="meta"><h3>यू फ़ेई की संपूर्ण कथा</h3><div class="author">कियान काई और जिन फ़ेंग</div><div class="desc">निष्ठा और साहस का एक ऐतिहासिक महाकाव्य — यू फ़ेई और उसकी वफ़ादार सेना की कहानी।</div></div>
+      </a>
+      <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">जल्द</div></div><div class="meta"><h3>नई श्रृंखला</h3></div></div>
+      <div class="card" style="--c1:#24303a;--c2:#0f161c;opacity:.55"><div class="cover"><div class="ct">जल्द</div></div><div class="meta"><h3>नई श्रृंखला</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>FictionChina के बारे में</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:720px">FictionChina अंग्रेज़ी धारावाहिक गद्य का घर है — ब्राउज़र में मुफ़्त पढ़ें, नई कड़ियाँ लिखते-लिखते जुड़ती हैं।</p>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head"><h2>लेखक को संदेश भेजें</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:640px">कोई प्रश्न या टिप्पणी? लिखिए — संदेश सीधे लेखक तक पहुँचता है।</p>
+    <textarea id="author-msg" rows="4" placeholder="अपना संदेश लिखें…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+    <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">लेखक को भेजें</button></div>
+    <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 FictionChina</span><span><a href="../sitemap.xml" style="color:#9a97a2">साइटमैप</a></span></div></footer>
+
+<script>
+  const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co", ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";
+  function sendAuthorMsg(){
+    const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
+    if(!txt){ s.textContent="कृपया पहले संदेश लिखें।"; return; }
+    s.textContent="भेजा जा रहा है…";
+    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+      .then(r=>{ if(r.ok){ s.textContent="धन्यवाद! आपका संदेश लेखक तक पहुँच गया।"; document.getElementById('author-msg').value=""; } else { s.textContent="क्षमा करें, भेजना असफल रहा।"; } })
+      .catch(()=>{ s.textContent="नेटवर्क त्रुटि। पुनः प्रयास करें।"; });
+  }
+</script>
+</body>
+</html>

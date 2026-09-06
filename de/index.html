@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — Geschichten jenseits der Welten</title>
+<meta name="description" content="FictionChina — Fortsetzungsromane: Fantasy, Abenteuer und mehr. Kapitel kostenlos lesen.">
+<link rel="canonical" href="https://fictionchina.com/de/">
+<meta property="og:title" content="FictionChina — Geschichten jenseits der Welten">
+<meta property="og:description" content="Fortsetzungsromane. Kapitel kostenlos lesen.">
+<meta property="og:url" content="https://fictionchina.com/de/">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <a class="logo" href="./">Fiction<em>China</em></a>
+    <nav class="nav">
+      <a href="./">Start</a><a href="./novel/tales-of-yue-fei.html">Romane</a><a href="#about">Über</a><a href="../">English</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <h1>Geschichten <span>jenseits der Welten</span></h1>
+      <p>Ein Zuhause für Fortsetzungsprosa — Fantasy, Abenteuer und unvergessliche Reisen. Neue Kapitel kostenlos lesen.</p>
+      <div class="tagrow"><span class="tag">Fantasy</span><span class="tag">Abenteuer</span><span class="tag">Epos</span></div>
+    </div>
+    <div class="art">📚</div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><h2>Empfohlene Reihe</h2><span class="line"></span></div>
+    <div class="grid">
+      <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008">
+        <div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">Empfohlen</span></div>
+        <div class="meta"><h3>Die vollständige Erzählung von Yue Fei</h3><div class="author">Qian Cai und Jin Feng</div><div class="desc">Ein historisches Epos über Loyalität und Ausdauer — die Geschichte von Yue Fei und seinem treuen Heer.</div></div>
+      </a>
+      <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">Bald</div></div><div class="meta"><h3>Neue Reihe</h3></div></div>
+      <div class="card" style="--c1:#24303a;--c2:#0f161c;opacity:.55"><div class="cover"><div class="ct">Bald</div></div><div class="meta"><h3>Neue Reihe</h3></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head"><h2>Über FictionChina</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:720px">FictionChina ist ein Zuhause für englische Fortsetzungsprosa — kostenlos im Browser lesbar, neue Kapitel beim Schreiben.</p>
+  </div>
+</section>
+
+<section id="contact" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head"><h2>Dem Autor schreiben</h2><span class="line"></span></div>
+    <p style="color:#6a665e;max-width:640px">Eine Frage oder Anmerkung? Schreiben Sie — die Nachricht geht direkt an den Autor.</p>
+    <textarea id="author-msg" rows="4" placeholder="Schreiben Sie Ihre Nachricht…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+    <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">An den Autor senden</button></div>
+    <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 FictionChina</span><span><a href="../sitemap.xml" style="color:#9a97a2">Sitemap</a></span></div></footer>
+
+<script>
+  const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co", ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";
+  function sendAuthorMsg(){
+    const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
+    if(!txt){ s.textContent="Bitte zuerst eine Nachricht schreiben."; return; }
+    s.textContent="Senden…";
+    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+      .then(r=>{ if(r.ok){ s.textContent="Danke! Ihre Nachricht wurde an den Autor gesendet."; document.getElementById('author-msg').value=""; } else { s.textContent="Senden fehlgeschlagen."; } })
+      .catch(()=>{ s.textContent="Netzwerkfehler. Versuchen Sie es erneut."; });
+  }
+</script>
+</body>
+</html>
