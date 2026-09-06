@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FictionChina — 세계 너머의 이야기</title>
+<meta name="description" content="FictionChina — 연재 소설: 판타지, 모험 등. 챕터 무료로 읽기.">
+<link rel="canonical" href="https://fictionchina.com/ko/">
+<meta property="og:title" content="FictionChina — 세계 너머의 이야기">
+<meta property="og:description" content="연재 소설. 챕터 무료로 읽기.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="topbar"><div class="wrap">
+  <a class="logo" href="./">Fiction<em>China</em></a>
+  <nav class="nav"><a href="./">홈</a><a href="./novel/tales-of-yue-fei.html">소설</a><a href="#about">소개</a><a href="../">English</a></nav>
+</div></header>
+<section class="hero"><div class="wrap">
+  <div><h1>이야기는 <span>세계 너머로</span></h1>
+  <p>연재 문학의 집 — 판타지, 모험, 잊지 못할 여정. 새 챕터 무료로 읽기.</p>
+  <div class="tagrow"><span class="tag">판타지</span><span class="tag">모험</span><span class="tag">서사시</span></div></div>
+  <div class="art">📚</div>
+</div></section>
+<section><div class="wrap">
+  <div class="sec-head"><h2>주목 시리즈</h2><span class="line"></span></div>
+  <div class="grid">
+    <a class="card" href="./novel/tales-of-yue-fei.html" style="--c1:#5a2a1e;--c2:#2a1008"><div class="cover"><div class="ct">The Complete<br>Tale of<br>Yue Fei</div><span class="badge">주목</span></div><div class="meta"><h3>완전한 악비 이야기</h3><div class="author">첸차이·진펑</div><div class="desc">충성과 인내의 역사 서사시 — 악비와 그의 충성스러운 군대의 이야기.</div></div></a>
+    <div class="card" style="--c1:#2b2b38;--c2:#12141d;opacity:.55"><div class="cover"><div class="ct">곧</div></div><div class="meta"><h3>새 시리즈</h3></div></div>
+  </div>
+</div></section>
+<section id="about"><div class="wrap"><div class="sec-head"><h2>FictionChina 소개</h2><span class="line"></span></div><p style="color:#6a665e;max-width:720px">FictionChina는 영어 연재 문학의 집입니다 — 브라우저에서 무료로 읽고, 쓰는 대로 새 챕터가 추가됩니다.</p></div></section>
+<section id="contact" style="background:var(--paper-2)"><div class="wrap">
+  <div class="sec-head"><h2>작가에게 메시지</h2><span class="line"></span></div>
+  <p style="color:#6a665e;max-width:640px">질문이나 의견이 있나요? 적어 주세요 — 메시지가 작가에게 직접 전달됩니다.</p>
+  <textarea id="author-msg" rows="4" placeholder="메시지를 적어 주세요…" style="width:100%;max-width:640px;padding:14px;border:1px solid #ddd;border-radius:10px;font-family:var(--sans);font-size:15px;resize:vertical"></textarea>
+  <div style="margin-top:12px"><button id="author-send" onclick="sendAuthorMsg()" style="background:var(--accent);color:#fff;border:none;padding:12px 26px;border-radius:10px;font-weight:600;cursor:pointer">작가에게 보내기</button></div>
+  <div id="author-status" style="margin-top:12px;color:var(--accent-2);font-size:14px"></div>
+</div></section>
+<footer><div class="wrap"><span>© 2026 FictionChina</span></div></footer>
+<script>const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co",ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";function sendAuthorMsg(){const t=document.getElementById('author-msg').value.trim(),s=document.getElementById('author-status');if(!t){s.textContent='먼저 메시지를 적어 주세요.';return;}s.textContent='보내는 중…';fetch(SB_URL+"/rest/v1/messages",{method:'POST',headers:{'apikey':ANON,'Authorization':'***'+ANON,'content-type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({device_id:'fictionchina-web',text:t})}).then(r=>{if(r.ok){s.textContent='감사합니다! 메시지가 작가에게 전달되었습니다.';document.getElementById('author-msg').value='';}else{s.textContent='전송 실패.';}}).catch(()=>{s.textContent='네트워크 오류. 다시 시도하세요.';});}</script>
+</body>
+</html>
