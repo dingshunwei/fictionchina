@@ -86,3 +86,5 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .gallery .gl{display:block;border-radius:10px;overflow:hidden;box-shadow:0 4px 14px rgba(26,26,36,.08);background:#fff;border:1px solid #eee;position:relative}
 .gallery .gl img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;transition:transform .2s}
 .gallery .gl:hover img{transform:scale(1.04)}
+
+.nav .langsel{background:transparent;border:1px solid rgba(0,0,0,.25);border-radius:6px;padding:3px 8px;font:inherit;color:inherit;cursor:pointer;margin-left:6px}
