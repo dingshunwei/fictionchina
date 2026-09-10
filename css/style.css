@@ -87,4 +87,5 @@ footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 .gallery .gl img{width:100%;display:block;aspect-ratio:3/4;object-fit:cover;transition:transform .2s}
 .gallery .gl:hover img{transform:scale(1.04)}
 
-.nav .langsel{background:transparent;border:1px solid rgba(0,0,0,.25);border-radius:6px;padding:3px 8px;font:inherit;color:inherit;cursor:pointer;margin-left:6px}
+.nav .langlab{font-size:15px;margin-left:8px;opacity:.9}
+.nav .langsel{background:#fff;color:#1a1a24;border:0;border-radius:8px;padding:5px 12px;font:inherit;font-weight:600;cursor:pointer;margin-left:4px}
