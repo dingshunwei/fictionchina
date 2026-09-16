@@ -62,5 +62,6 @@
 </div></section>
 <footer><div class="wrap"><span>© 2026 FictionChina</span> · <a href="/privacy.html">Sekretess</a></div></footer>
 <script>const SB_URL="https://elrsrrvvuhfbkmxnvtod.supabase.co",ANON="sb_publishable_XuZtEeFeJK6GtQC1RE3O6A_ZoVMcaO6";function sendAuthorMsg(){const t=document.getElementById('author-msg').value.trim(),s=document.getElementById('author-status');if(!t){s.textContent='Skriv ett meddelande först.';return;}s.textContent='Skickar…';fetch(SB_URL+"/rest/v1/messages",{method:'POST',headers:{'apikey':ANON,'Authorization':'***'+ANON,'content-type':'application/json','Prefer':'return=minimal'},body:JSON.stringify({device_id:'fictionchina-web',text:t})}).then(r=>{if(r.ok){s.textContent='Tack! Ditt meddelande har nått författaren.';document.getElementById('author-msg').value='';}else{s.textContent='Misslyckades att skicka.';}}).catch(()=>{s.textContent='Nätverksfel. Försök igen.';});}</script>
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "e2d8af4b9cc640bc8eb068ec6d61cc61"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 </html>
