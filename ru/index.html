@@ -98,7 +98,7 @@
     const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
     if(!txt){ s.textContent="Сначала напишите сообщение."; return; }
     s.textContent="Отправка…";
-    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+    fetch("https://api.agentchina.uk/web-contact",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
       .then(r=>{ if(r.ok){ s.textContent="Спасибо! Ваше сообщение отправлено автору."; document.getElementById('author-msg').value=""; } else { s.textContent="Не удалось отправить. Попробуйте ещё раз."; } })
       .catch(()=>{ s.textContent="Ошибка сети. Попробуйте ещё раз."; });
   }

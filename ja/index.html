@@ -93,7 +93,7 @@
     const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
     if(!txt){ s.textContent="まずメッセージを書いてください。"; return; }
     s.textContent="送信中…";
-    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+    fetch("https://api.agentchina.uk/web-contact",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
       .then(r=>{ if(r.ok){ s.textContent="ありがとうございます！作者へ送信されました。"; document.getElementById('author-msg').value=""; } else { s.textContent="送信に失敗しました。"; } })
       .catch(()=>{ s.textContent="ネットワークエラー。再試行してください。"; });
   }

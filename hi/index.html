@@ -93,7 +93,7 @@
     const txt=document.getElementById('author-msg').value.trim(), s=document.getElementById('author-status');
     if(!txt){ s.textContent="कृपया पहले संदेश लिखें।"; return; }
     s.textContent="भेजा जा रहा है…";
-    fetch(SB_URL+"/rest/v1/messages",{method:"POST",headers:{"apikey":ANON,"Authorization":"***"+ANON,"content-type":"application/json","Prefer":"return=minimal"},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
+    fetch("https://api.agentchina.uk/web-contact",{method:"POST",headers:{'Content-Type':'application/json'},body:JSON.stringify({device_id:"fictionchina-web",text:txt})})
       .then(r=>{ if(r.ok){ s.textContent="धन्यवाद! आपका संदेश लेखक तक पहुँच गया।"; document.getElementById('author-msg').value=""; } else { s.textContent="क्षमा करें, भेजना असफल रहा।"; } })
       .catch(()=>{ s.textContent="नेटवर्क त्रुटि। पुनः प्रयास करें।"; });
   }
